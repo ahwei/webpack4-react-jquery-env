@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: [
@@ -17,14 +18,14 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader']
       },
-      {
-        test: /\.css$/,
-        use: [
-          { loader: 'css-loader', options: { sourceMap: true } },
-          {
-            loader: 'resolve-url-loader',
-          },
 
+      {
+        test: /\.css/,
+        use: [
+          'css-hot-loader',
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'resolve-url-loader'
         ],
       },
       {
@@ -57,6 +58,10 @@ module.exports = {
       template: `${__dirname}/src/index.html`,
       filename: "./index.html"
     }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    })
   ],
   devServer: {
     historyApiFallback: true,
