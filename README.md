@@ -15,3 +15,9 @@
 * npm install
 * npm start
 * see `http://localhost:8080/`
+
+## Build 輸出成產品模式
+
+* npm run build
+* set  `./dist`
+
