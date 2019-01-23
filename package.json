@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --colors --inline --content-base .",
+    "start": "SET NODE_ENV=development&& webpack-dev-server --mode development --open --colors --inline --content-base .",
     "test": "echo \"No test specified\" && exit 0",
     "build": "webpack -p --config ./webpack.production.config.js"
   },
@@ -31,6 +31,7 @@
     "mini-css-extract-plugin": "^0.5.0",
     "react-hot-loader": "^4.3.11",
     "resolve-url-loader": "^3.0.0",
+    "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
     "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2",
